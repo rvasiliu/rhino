@@ -16,7 +16,7 @@ if __name__=='__main__':
             S._LED_data.make_colour(red=2*k, green=0, blue=0)
             S.render()
 
-            #time.sleep(1)
+            time.sleep(0.01)
         S.render_slide()
     S.cleanup()
     print('done')

@@ -20,10 +20,10 @@ class SPIDriver:
     def begin(self):
         try:
             self.ctrl = SpiController(cs_count=1)
-            s = 'ftdi://0x0403:0x6011/2'
+            s = 'ftdi://0x0403:0x6011/1'
             self.ctrl.configure(s)
 
-            self.slave = self.ctrl.get_port(cs=0, freq=10E6, mode=3)
+            self.slave = self.ctrl.get_port(cs=0, freq=6E6, mode=3)
             self.slave.set_frequency(8000000)
 
             self.gpio = self.ctrl.get_gpio()

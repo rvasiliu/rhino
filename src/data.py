@@ -138,7 +138,7 @@ class LEDData:
         """
         sequence = b''
         for colour in virtual_pixel:
-            sequence += self.convert_single_byte_to_spi(color_byte=colour)
+            sequence += self.convert_single_byte_to_spi_6mhz(color_byte=colour)
         return sequence
 
     def convert_single_byte_to_spi_4mhz(self, color_byte):
@@ -159,7 +159,7 @@ class LEDData:
         # convert in_bytes to bytes.
         return in_bytes.to_bytes(4, byteorder='big')
 
-    def convert_single_byte_to_spi(self, color_byte):
+    def convert_single_byte_to_spi_6mhz(self, color_byte):
         """This method is identical to convert_single_byte_to_spi but it converts each bit to one byte. For running at 6Mhz."""
         if isinstance(color_byte, bytes):
             color_byte = int.from_bytes(color_byte, byteorder='big')
